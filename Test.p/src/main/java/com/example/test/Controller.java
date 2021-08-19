@@ -15,16 +15,17 @@ public class Controller {
 
             model.addWord(ckeckWord(sc));
         }
-        view.printMessage(model.finalStep());
+        view.printMessage(View.PROGRAM_OUTPUT+model.finalStep());
     }
     public String ckeckWord(Scanner sc){
         view.printMessage(View.INPUT_STRING_DATA);
-        while(!sc.nextLine().equals("Helloy") || !sc.nextLine().equals("world!")){
+        String inputedLine=sc.nextLine();
+        while(!inputedLine.equals("Hello") && !inputedLine.equals("world!")){
             view.printMessage(View.WRONG_INPUT_STRING_DATA + View.INPUT_STRING_DATA);
             sc.next();
         }
         view.printMessage(View.Ok);
-        if(sc.nextLine().equals("Helloy")){ return "Helloy";}
+        if(inputedLine.equals("Hello")){ return "Hello";}
         else{ return "world!";}
     }
 }
